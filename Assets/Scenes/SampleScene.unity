@@ -123,9 +123,12 @@ GameObject:
   - component: {fileID: 194229200}
   - component: {fileID: 194229202}
   - component: {fileID: 194229201}
+  - component: {fileID: 194229205}
+  - component: {fileID: 194229204}
+  - component: {fileID: 194229203}
   m_Layer: 0
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -375,6 +378,73 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!66 &194229203
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 194229199}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 194229205}
+    m_ColliderPaths:
+    - - X: -40000000
+        Y: -25000000
+      - X: 30000000
+        Y: -25000000
+      - X: 30000000
+        Y: -20000000
+      - X: -40000000
+        Y: -20000000
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 3, y: -2}
+      - {x: -4, y: -2}
+      - {x: -4, y: -2.5}
+      - {x: 3, y: -2.5}
+  m_VertexDistance: 0.0005
+--- !u!50 &194229204
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 194229199}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!19719996 &194229205
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 194229199}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 1
+  m_Offset: {x: 0, y: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,9 +531,10 @@ GameObject:
   - component: {fileID: 529983982}
   - component: {fileID: 529983981}
   - component: {fileID: 529983983}
-  m_Layer: 0
-  m_Name: Character
-  m_TagString: Untagged
+  - component: {fileID: 529983984}
+  m_Layer: 8
+  m_Name: PlayerController
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -487,7 +558,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &529983979
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -604,6 +675,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &529983984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 529983977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9915080a088a96846a0c463de6b3d8e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 10
+  rigidbody2DInstance: {fileID: 529983978}
+  accelerationForce: 5
 --- !u!1 &694894788
 GameObject:
   m_ObjectHideFlags: 0
